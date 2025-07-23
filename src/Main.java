@@ -1,15 +1,35 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import br.com.moneyflip.classes.AppLogic;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("╔════════════════════════════════════════════════════════════╗");
+        System.out.println("║            🌟💸 Bem-vindo ao MoneyFlip! 💸🌟               ║");
+        System.out.println("║          💱 Conversor de Moedas Internacional 💱           ║");
+        System.out.println("╠════════════════════════════════════════════════════════════╣");
+        System.out.println("║ Digite o código da moeda (padrão ISO 4217):                ║");
+        System.out.println("║ Ex: Real - BRL | Dólar - USD | Euro - EUR | Peso - ARS     ║");
+        System.out.println("╚════════════════════════════════════════════════════════════╝");
+        System.out.println();
+
+        System.out.print("🔹 Moeda de origem (ex: USD): ");
+        System.out.println();
+        String moedaDeOrigem = scanner.nextLine().toUpperCase();
+
+        System.out.print("🔹 Moeda de destino (ex: BRL): ");
+        System.out.println();
+        String moedaDeDestino = scanner.nextLine().toUpperCase();
+
+        System.out.print("🔹 Valor a converter: ");
+        System.out.println();
+        double valor = scanner.nextDouble();
+
+        System.out.println("\n🔄 Convertendo " + valor + " " + moedaDeOrigem + " para " + moedaDeDestino + "...");
+        double valorConvertido = AppLogic.convertido(valor, moedaDeOrigem, moedaDeDestino);
+        System.out.printf("✅ Resultado: %.2f %s\n", valorConvertido, moedaDeDestino);
     }
 }
